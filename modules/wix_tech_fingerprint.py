@@ -41,7 +41,7 @@ class WixTechFingerprint:
             f = Finding(
                 module=self.name,
                 title="Wix Technology Fingerprinting",
-                severity="high",
+                severity="Low",
                 description="Wix technology is detected on the target website.",
                 endpoint=target,
                 evidence=evidence

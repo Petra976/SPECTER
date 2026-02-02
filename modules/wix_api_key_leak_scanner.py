@@ -78,7 +78,7 @@ class WixGenericSecretScanner:
         js_urls = self.extract_js_urls(r.text, target)
         all_findings = []
 
-        for js in js_urls[:15]:
+        for js in js_urls:
             js_resp = get(js)
             if not js_resp or len(js_resp.text) > 3_000_000:
                 continue
