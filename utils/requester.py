@@ -15,9 +15,9 @@ def get(url):
     except:
         return None
 
-def post(url, data):
+def post(url, json=None, data=None):
     try:
-        return session.post(url, data=data, timeout=8, verify=False)
+        return session.post(url, json=json, data=data, timeout=8, verify=False)
     except:
         return None
     

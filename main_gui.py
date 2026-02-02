@@ -407,7 +407,7 @@ class ScannerGUI(QWidget):
     def export_html(self):
         if not self.results: return
         path, _ = QFileDialog.getSaveFileName(self, "Salvar HTML", "", "HTML (*.html)")
-        if path: generate_html_report(self.results, path, self.url_input.text(), "wpf_icon.ico")
+        if path: generate_html_report(self.results, path, self.url_input.text())
 
     # ================= STYLESHEET =================
 
