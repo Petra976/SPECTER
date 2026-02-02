@@ -100,7 +100,6 @@ class WixSensitiveDataClassifier:
         if not evidence_list:
             return None
 
-        # 🎯 Finding único consolidado
         f = Finding(
             module=self.name,
             title="Wix IDOR Sensitive Data Exposure",

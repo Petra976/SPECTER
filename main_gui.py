@@ -9,8 +9,8 @@ from PySide6.QtWidgets import (
     QFileDialog, QTabWidget, QTreeWidget, QTreeWidgetItem, QLabel, 
     QHBoxLayout, QFrame, QStyle, QSplitter, QHeaderView
 )
-from PySide6.QtCore import Qt, QThread, Signal, QSize
-from PySide6.QtGui import QIcon, QFont, QColor, QPalette
+from PySide6.QtCore import Qt, QThread, Signal
+from PySide6.QtGui import QIcon, QFont, QColor
 from PySide6.QtCharts import QChart, QChartView, QBarSeries, QBarSet, QBarCategoryAxis
 
 try:

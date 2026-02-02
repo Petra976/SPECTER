@@ -5,12 +5,8 @@ import statistics
 
 class WixRateLimitScanner:
     name = "wix_rate_limit_scanner"
-    TEST_ENDPOINTS = [
-        "/_api/members/v1/authentication/login",
-        "/_api/members/v1/authentication/send-reset-password-email"
-    ]
     ATTEMPTS = 12
-    requires = ["endpoints"]
+    requires = []
 
     def test_login_rate_limit(self, base_url, endpoint):
         url = base_url.rstrip("/") + endpoint
@@ -39,25 +35,19 @@ class WixRateLimitScanner:
             return None
         return {"endpoint": url, "issue": "No visible rate limiting"}
 
-    def run(self, target, discovered_endpoints):
+    def run(self, target):
         findings = []
-        # Auth endpoints
-        for ep in self.TEST_ENDPOINTS:
-            res = self.test_login_rate_limit(target, ep)
-            if res:
-                findings.append(res)
-        # APIs descobertas
-        for ep in discovered_endpoints[:5]:
-            url = ep["url"] if isinstance(ep, dict) else str(ep)
-            res = self.test_api_rate_limit(url)
-            if res:
-                findings.append(res)
+ 
+        url = target
+        res = self.test_api_rate_limit(url)
+        if res:
+            findings.append(res)
         if not findings:
             return None
         f = Finding(
             module=self.name,
             title="Rate Limiting Issues Detected",
-            severity="high",
+            severity="low",
             description="Rate limiting issues detected on endpoints.",
             endpoint=target,
             evidence=findings

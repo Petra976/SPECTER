@@ -95,7 +95,7 @@ class WixGenericSecretScanner:
             f = Finding(
                 module=self.name,
                 title="Wix API Key Leakage Detection",
-                severity="high",
+                severity="medium",
                 description="Sensitive API keys or tokens were discovered in publicly accessible JavaScript files.",
                 endpoint=target,
                 evidence=all_findings
