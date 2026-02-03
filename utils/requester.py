@@ -9,9 +9,9 @@ session.headers.update({
     "Accept": "*/*",
 })
 
-def get(url):
+def get(url, headers=session.headers):
     try:
-        return session.get(url, timeout=8, verify=False)
+        return session.get(url, timeout=8, verify=False, headers=headers)
     except:
         return None
 
