@@ -214,7 +214,7 @@ def generate_html_report(results, path, target):
 <div class="container">
     <header>
         <div>
-            <h1>WRAITH <span style="color:var(--accent); font-weight:300;">REPORT</span></h1>
+            <h1>SPECTER <span style="color:var(--accent); font-weight:300;">REPORT</span></h1>
             <div class="meta">
                 Target: <b>{html.escape(target)}</b> &bull; 
                 Date: {datetime.now().strftime('%d/%m/%Y %H:%M')}

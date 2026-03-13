@@ -32,9 +32,12 @@ icon_path = os.path.join(os.getcwd(), '')
 def load_modules():
     modules = []
     
-    # 1. Obtém o caminho absoluto onde ESTE script está salvo
-    # Isso resolve o problema de rodar o script de pastas diferentes
-    base_dir = os.path.dirname(os.path.abspath(__file__))
+    def get_base_dir():
+        if getattr(sys, 'frozen', False):
+            return sys._MEIPASS
+        return os.path.dirname(os.path.abspath(__file__))
+    
+    base_dir = get_base_dir()
     modules_path = os.path.join(base_dir, "modules")
 
     # 2. Adiciona o diretório base ao Path do Python para garantir que o import funcione

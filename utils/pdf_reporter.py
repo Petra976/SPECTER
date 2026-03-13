@@ -29,7 +29,7 @@ def generate_pdf_report(results, path, target):
     story = []
 
     story.append(Spacer(1, 120))
-    story.append(Paragraph("WordPress Security Assessment Report", styles["Center"]))
+    story.append(Paragraph("Wix Security Assessment Report", styles["Center"]))
     story.append(Spacer(1, 40))
     story.append(Paragraph(f"<b>Target:</b> {target}", styles["Normal"]))
     story.append(Paragraph(f"<b>Date:</b> {datetime.now().strftime('%d/%m/%Y %H:%M')}", styles["Normal"]))
